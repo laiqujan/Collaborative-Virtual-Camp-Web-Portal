@@ -1,0 +1,41 @@
+<?php
+$filecontent="";
+if(isset($_POST['create'])==true){
+
+  $filename = "NewDocument1.txt";
+  $myfile = fopen("$filename", "r") or die("Unable to open file!");
+  $filecontent =  fread($myfile,filesize("$filename"));
+  fclose($myfile);
+
+}
+?>
+<html>
+<head>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+   <script src="js/bootstrap.min.js" ></script>
+   <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+
+<form  method="post">
+<table>
+<tr>
+<td><button type="submit" name="create" class="btn btn-link" method="post">NewDocument1.txt</button></td>
+</tr>
+<tr>
+<td><button type="submit" name="create1" class="btn btn-link" >NewDocument2.txt</button></td>
+</tr>
+<tr>
+<td><button type="submit" name="create2" class="btn btn-link" >NewDocument3.txt</button></td>
+</tr>
+<tr>
+<td><button type="submit" name="create3" class="btn btn-link" >NewDocument4.txt</button></td>
+</tr>
+<tr>
+<td><textarea name="text" ><?php echo $filecontent;?></textarea> </td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
